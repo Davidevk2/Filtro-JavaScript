@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en" data-topbar-color="dark">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+		<script src="../../template/js/head.js"></script>
+		<link href="../../template/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="app-style" />
+		<link href="../../template/css/app.min.css" rel="stylesheet" type="text/css" />
+		<link href="../../template/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" href="../../assets/css/main.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="app-menu">
+                <div class="logo-box">
+                    <a href="index.html">
+                           <center><img src="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo.png" class="w-50" alt=""></center>
+                    </a>
+                </div>
+                <div class="scrollbar">
+                    <div class="text-center">
+                        <div class="dropdown">
+                            <a href="javascript: void(0);" class="dropdown-toggle h5 mb-1 d-block" data-bs-toggle="dropdown">Robinson Cortes</a>
+                        </div>
+                        <p class="text-muted mb-0">Administrador</p>
+                    </div>
+                    <ul class="menu">
+                        <li class="menu-title">Acciones</li>
+                        <li class="menu-item">
+                            <a href="./../index.html" class="menu-link">
+                                <span class="menu-icon"><i data-feather="airplay"></i></span>
+                                <span class="menu-text"> Escritorio </span>
+                            </a>
+                        </li>
+                        <!-- Administradores-->
+                        <li class="menu-item">
+                            <a href="./../admins/index.html" class="menu-link">
+                                <span class="menu-icon"><i data-feather="users"></i></span>
+                                <span class="menu-text"> Administradores </span>
+                            </a>
+                        </li>
+                        <!-- Marcas-->
+                        <li class="menu-item">
+                            <a href="" class="menu-link">
+                                <span class="menu-icon"><i data-feather="activity"></i></span>
+                                <span class="menu-text"> Marcas </span>
+                            </a>
+                        </li>
+                          <!-- Pqrs-->
+                          <li class="menu-item">
+                            <a href="./../pqrs/index.html" class="menu-link">
+                                <span class="menu-icon"><i data-feather="message-square"></i></span>
+                                <span class="menu-text"> PQRS </span>
+                            </a>
+                        </li>
+
+                        <li class="menu-item">
+                            <a href="./brands/index.html" class="menu-link text-danger">
+                                <span class="menu-icon"><i class="fe-log-out"></i></span>
+                                <span class="menu-text"> Cerrar sesión </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="content-page">
+                <div class="content">
+                    <div class="container-fluid mt-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                 <div class="card">
+                                    <div class="card-body">
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                           Crear nueva marca
+                                          </button>
+                                        <div class="table-responsive mt-4">
+                                            <table class="table table-hover table-striped">
+                                                <thead>
+                                                    <tr class="bg-secondary text-white">
+                                                        <th>#</th>
+                                                        <th>ID</th>
+                                                        <th>LOGO</th>
+                                                        <th>NOMBRE</th>
+                                                        <th>LOCAL</th>
+                                                        <th>PISO</th>
+                                                        <th>HORARIOS</th>
+                                                        <th>SITIO WEB</th>
+                                                        <th>ACCIONES</th>
+                                                    </tr>
+                                                </thead>
+                                                <tr>
+                                                    <td>Filtar</td>
+                                                    <td>
+                                                        <input type="text" id="inputId" class="form-control form-control-sm">
+                                                    </td>
+                                                    <td></td>
+                                                    <td><input type="text" id="inputNombre"class="form-control form-control-sm"></td>
+                                                    <td><input type="text" id="inputlocal"class="form-control form-control-sm"></td>
+                                                    <td><input type="text" id="inputPiso"class="form-control form-control-sm"></td>
+                                                    <td></td>
+                                                    <td>
+                                                    
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-info" id="btnSearch">Buscar</button>
+                                            
+                                                    </td>
+                                                </tr>
+                                                <tbody id="tbodyMarcas">
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div> 
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>Muchos exitos :)</div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+      <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Marcas</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <span class="spanMessages" id="spanMessages"></span>
+            <form action="" name="brandForm">
+                <div class="form-group">
+                    <label for="">Logo:</label>
+                    <input type="url" name="logo" class="form-control" placeholder="Enter the info here">
+                </div>
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre de la marca">
+                </div>
+                <div class="form-group">
+                    <label for="">Local:</label>
+                    <input type="text" name="local" class="form-control" placeholder="ingrese el local">
+                </div>
+                <div class="form-group">
+                    <label for="">Piso:</label>
+                    <select name="piso" class="form-select" id="">
+                        <option value="1">Piso 1</option>
+                        <option value="2">Piso 2</option>
+                        <option value="3">Piso 3</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="">Horarios:</label>
+                    <textarea name="horarios" id="" cols="30" rows="3"  class="form-control" placeholder="Ingrese los horarios"></textarea>
+                </div>
+              
+                <div class="form-group">
+                    <label for="">Sitio web:</label>
+                    <input type="url" name="sitio" class="form-control" placeholder="url de la marca">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="btnAgregarMarca">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- mi modal  -->
+  <div class="modal" id="modalA">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="Title">Editar Marca</h1>
+            <span class="close" onclick="cerrarModal()">&times;</span>
+        </div>
+        <div class="modal-body" id="content-normal">
+            <span class="spanMessages" id="spanMessages"></span>
+            <form action="" name="editBForm">
+                <div class="form-group">
+                    <label for="">id:</label>
+                    <input type="text" name="idmarca" class="form-control" placeholder="Enter the info here" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="">Logo:</label>
+                    <input type="url" name="logo" class="form-control" placeholder="Enter the info here">
+                </div>
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre de la marca">
+                </div>
+                <div class="form-group">
+                    <label for="">Local:</label>
+                    <input type="text" name="local" class="form-control" placeholder="ingrese el local">
+                </div>
+                <div class="form-group">
+                    <label for="">Piso:</label>
+                    <select name="piso" class="form-select" id="">
+                        <option value="1">Piso 1</option>
+                        <option value="2">Piso 2</option>
+                        <option value="3">Piso 3</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="">Horarios:</label>
+                    <textarea name="horarios" id="" cols="30" rows="3"  class="form-control" placeholder="Ingrese los horarios"></textarea>
+                </div>
+              
+                <div class="form-group">
+                    <label for="">Sitio web:</label>
+                    <input type="url" name="sitio" class="form-control" placeholder="url de la marca">
+                </div>
+            </form>
+        </div>
+        <div class="modal-body" id="content-detail"></div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="cerrarModal();">cancelar</button>
+            <button type="button" class="btn btn-primary" id="btnEditarMarca">Editar Marca</button>
+        </div>
+    </div>
+  </div>
+
+  
+    <!-- Script de los templates -->
+    <script src="../../template/js/vendor.min.js"></script>
+    <script src="../../template/js/app.min.js"></script>
+
+    <!-- mis scripts -->
+    <script src="../../assets/JS/main.js"></script>
+    <script src="../../assets/JS/sesion.js"></script>
+    <script src="../../assets/JS/adminBrands.js"></script>
+    
+
+
+    </body>
+</html>
