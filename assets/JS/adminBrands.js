@@ -31,8 +31,6 @@ async function agregarMarca(){
     let inputHorarios = document.brandForm.horarios.value;
     let inputSitio = document.brandForm.sitio.value;
 
-    console.log(inputLocal, inputLogo);
-
     if(inputLogo != ""  && inputNombre != "" && inputPiso != "" && inputHorarios != "" && inputSitio != ""){
         dataMarca.name = inputNombre;
         dataMarca.local = inputLocal;
@@ -41,7 +39,7 @@ async function agregarMarca(){
         dataMarca.logo = inputLogo;
         dataMarca.website = inputSitio;
         
-        if(buscarNombre(inputNombre)){
+        // if(buscarNombre(inputNombre)){
 
             let request =  await fetch("http://localhost:3000/brands",{method: "POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(dataMarca)});
             
@@ -58,9 +56,9 @@ async function agregarMarca(){
                     showMessage("Error al tratar de crear la marca!", "red");
                 }
 
-        }else{
-            showMessage("el nombre ya se encuentra regsiatrado!", "red");
-        }
+        // }else{
+        //     showMessage("el nombre ya se encuentra regsiatrado!", "red");
+        // }
 
 
     }else{
@@ -217,20 +215,23 @@ async function flitraTabla(){
 }
 
 function buscarNombre(nombre){
+    let existe = null;   
     let request =  fetch("http://localhost:3000/brands")
     .then( r =>{ return r.json()})
     .then(data =>{
-        resultado = data.filter(brand =>{
+        resultado = data.findIndex(brand =>{
             return brand.name === nombre;
         })
         
-        console.log(resultado);
-        if(resultado.length >= 1 ){
-            return false;
+        // console.log(resultado.length);
+        if(resultado >= 0 ){
+            existe = true;
         }else{
-            return true;
+            existe = false;
         }
     })
+    console.log(existe);
+    return existe;
 } 
 
 /* Modal */
