@@ -29,7 +29,7 @@ async function agregarAdmin(){
         dataAdmin.names = inputNombre;
         dataAdmin.email = inputCorreo;
 
-        if(buscarCorreo(inputCorreo)){
+        if(!buscarCorreo(inputCorreo)){
         
             let request =  await fetch("http://localhost:3000/admins",{method: "POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(dataAdmin)});
         
@@ -183,9 +183,9 @@ function buscarCorreo(correo){
         
         console.log(resultado);
         if(resultado.length >= 1 ){
-            return false;
-        }else{
             return true;
+        }else{
+            return false;
         }
     })
 }   
